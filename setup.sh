@@ -7,6 +7,6 @@ mkdir ~/.config/zsh
 mkdir ~/.config/nvim
 
 # Run stow for each package
-stow nvim
+stow --target=../.config/nvim nvim
 stow zsh
 stow starship
