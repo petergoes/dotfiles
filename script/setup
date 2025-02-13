@@ -22,5 +22,7 @@ mkdir ../.config/nvim
 
 echo 'Run stow commands'
 stow --target=../.config/nvim nvim
+stow --target=../.config starship
 stow zsh
-stow starship
+
+source ../.zshrc
