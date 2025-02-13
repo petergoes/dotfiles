@@ -16,12 +16,12 @@ fi;
 installCliTools
 
 # Create dir to contain config
-# mkdir $HOME/.config
+mkdir $HOME/.config
 
-# mkdir $HOME/.config/zsh
-# mkdir $HOME/.config/nvim
+mkdir $HOME/.config/zsh
+mkdir $HOME/.config/nvim
 
 # # Run stow for each package
-# stow --target=../.config/nvim nvim
-# stow zsh
-# stow starship
+stow --target=../.config/nvim nvim
+stow zsh
+stow starship
