@@ -43,7 +43,7 @@ installCliTools() {
         if [ -z ${VALUE[1]+x} ]; then
             $PACKAGE_MANAGER ${TOOL[0]}
         else
-            curl -sS ${VALUE[1]} | sh
+            curl -sS ${VALUE[1]} | sh -s -- -y
         fi
     done < ./script/cli-tools
 }
