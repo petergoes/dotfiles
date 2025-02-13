@@ -6,7 +6,7 @@ source ./script/install
 
 platform="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
-if [ $platform == 'darwin' ]; then
+if [[ "$platform" == "darwin" ]]; then
     installHomebrew
     installCliTools brew
 else
