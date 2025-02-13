@@ -8,10 +8,10 @@ platform="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
 if [[ "$platform" == "darwin" ]]; then
     installHomebrew
-    installCliTools brew
-else
-    installCliTools apt
 fi
+
+installCliTools
+installCasks
 
 echo "Create .conf directory"
 mkdir $HOME/.config

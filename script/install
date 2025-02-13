@@ -1,14 +1,23 @@
 #!/bin/bash
 
-PACKAGE_MANAGER=
+has() {
+  command -v "$1" 1>/dev/null 2>&1
+}
 
-if [ "$1" == "brew" ] || [ "$1" == "homebrew" ]; then
-   PACKAGE_MANAGER="brew install"
-elif [ "$1" == 'apt' ]; then
-    PACKAGE_MANAGER="apt install -y"
+PACKAGE_MANAGER=
+INSTALL=
+UPDATE=
+
+PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')"
+
+if [[ "$PLAYFORM" == "darwin" ]]; then
+    PACKAGE_MANAGER="brew"
+    INSTALL="install"
+    UPDATE="update"
 else
-    echo "Please specify a package manager"
-    exit 1
+    PACKAGE_MANAGER="apt"
+    INSTALL="install -y"
+    UPDATE="update"
 fi
 
 installHomebrew() {
@@ -32,17 +41,37 @@ installCliTools() {
         fi
 
         echo
-        if which ${BIN_NAME}; then
-            echo "already installed"
-            continue
-        else
-            echo "Install ${TOOL[0]}"
-        fi
-
         if [ -z ${VALUE[1]+x} ]; then
-            $PACKAGE_MANAGER ${TOOL[0]}
+            if has ${BIN_NAME}; then
+                echo "Updating ${TOOL[0]}"
+                $PACKAGE_MANAGER $UPDATE ${TOOL[0]}
+            else
+                echo "Install ${TOOL[0]}"
+                $PACKAGE_MANAGER $INSTALL ${TOOL[0]}
+            fi
         else
-            curl -sS ${VALUE[1]} | sh -s -- -y
+            if ! has ${BIN_NAME}; then
+                echo "Install ${TOOL[0]}"
+                curl -sS ${VALUE[1]} | sh -s -- -y
+            fi
         fi
     done < ./script/cli-tools
+}
+
+installCasks() {
+    echo
+    echo "Install Casks"
+
+    while read cask; do
+        IFS=' '; VALUE=($cask); unset IFS;
+
+        echo
+        if has $cask; then
+            echo "Updating $cask"
+            brew update $cask
+        else
+            echo "Install $cask"
+            $PACKAGE_MANAGER $INSTALL --cask $cask
+        fi
+    done < ./script/casks
 }
