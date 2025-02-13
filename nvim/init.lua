@@ -2,7 +2,6 @@ require("config.lazy")
 
 vim.cmd [[
 	colorscheme tokyonight
-	language en_US
 ]]
 
 vim.api.nvim_create_autocmd("BufRead", {
