@@ -2,4 +2,4 @@
 eval "$(starship init zsh)"
 
 # Load custom aliases
-source ~/.config/zsh/alias.zsh
+source $HOME/.config/zsh/alias.zsh

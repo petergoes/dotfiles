@@ -16,13 +16,13 @@ fi;
 installCliTools
 
 echo "Create .conf directory"
-mkdir ../.config
-mkdir ../.config/zsh
-mkdir ../.config/nvim
+mkdir $HOME/.config
+mkdir $HOME/.config/zsh
+mkdir $HOME/.config/nvim
 
 echo 'Run stow commands'
 stow --target=../.config/nvim nvim
 stow --target=../.config starship
 stow zsh
 
-source ../.zshrc
+source $HOME/.zshrc
