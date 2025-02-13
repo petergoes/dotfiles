@@ -1,14 +1,13 @@
 #!/bin/bash
 
 installHomebrew() {
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sh
+    echo "Install Homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 installCliTools() {
-    brew install curl
-    brew install zsh
-    brew install git
-    brew install neovim
-    brew install stow
-    brew install starship
+    echo "Install Cli Tools"
+    while read p; do
+        echo "Install $p"
+    done < ./script/cli-tools
 }

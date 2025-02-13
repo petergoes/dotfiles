@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source ./install
+source ./script/install
 
-installHomebrew()
-installCliTools()
+# installHomebrew
+installCliTools
 
 # Create dir to contain config
 mkdir ~/.config
