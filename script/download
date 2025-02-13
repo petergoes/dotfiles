@@ -35,10 +35,10 @@ elif test -d $TARGET_DIR; then
 fi
 
 # The target directory is not present, clone it
-echo "Cloning the repo"
 git clone https://github.com/petergoes/dotfiles $TARGET_DIR
 
 # Once cloned, cd into it and start setup
 echo
 cd $TARGET_DIR
+git checkout v2
 ./script/setup
