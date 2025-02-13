@@ -6,8 +6,8 @@ if [ "$1" == "brew" ] || [ "$1" == "homebrew" ]; then
    # PACKAGE_MANAGER="brew install"
    PACKAGE_MANAGER="echo"
 elif [ "$1" == 'apt' ]; then
-    # PACKAGE_MANAGER="apt install -y"
-    PACKAGE_MANAGER="echo"
+    PACKAGE_MANAGER="apt install -y"
+    # PACKAGE_MANAGER="echo"
 else
     echo "Please specify a package manager"
     exit 1
@@ -34,8 +34,8 @@ installCliTools() {
         fi
 
         echo
-        if which -s ${BIN_NAME}; then
-            echo "${TOOL[0]} already installed"
+        if which ${BIN_NAME}; then
+            echo "already installed"
             continue
         else
             echo "Install ${VALUE[0]}"
