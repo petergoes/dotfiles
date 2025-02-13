@@ -3,8 +3,7 @@
 PACKAGE_MANAGER=
 
 if [ "$1" == "brew" ] || [ "$1" == "homebrew" ]; then
-   # PACKAGE_MANAGER="brew install"
-   PACKAGE_MANAGER="echo"
+   PACKAGE_MANAGER="brew install"
 elif [ "$1" == 'apt' ]; then
     PACKAGE_MANAGER="apt install -y"
 else
@@ -15,7 +14,7 @@ fi
 installHomebrew() {
     echo
     echo "Install Homebrew"
-    # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 installCliTools() {
