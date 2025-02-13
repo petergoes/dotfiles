@@ -10,10 +10,10 @@ UPDATE=
 
 PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
-if [[ "$PLAYFORM" == "darwin" ]]; then
+if [[ "$PLATFORM" == "darwin" ]]; then
     PACKAGE_MANAGER="brew"
     INSTALL="install"
-    UPDATE="update"
+    UPDATE="upgrade"
 else
     PACKAGE_MANAGER="apt"
     INSTALL="install -y"
@@ -48,8 +48,15 @@ installCliTools() {
         echo
         if [ -z ${VALUE[1]+x} ]; then
             if has ${BIN_NAME}; then
-                echo "Updating ${TOOL[0]}"
-                $PACKAGE_MANAGER $UPDATE ${TOOL[0]}
+                # Force tools to be installed via homebrew on macos
+                # git comes preinstalled, but we want the homebrew version
+                if [ $PLATFORM == 'darwin' ] && [[ ! ${BIN_NAME} =~ homebrew ]]; then
+                    echo "Install ${TOOL[0]}"
+                    $PACKAGE_MANAGER $INSTALL ${TOOL[0]}
+                else
+                    echo "Updating ${TOOL[0]}"
+                    $PACKAGE_MANAGER $UPDATE ${TOOL[0]}
+                fi
             else
                 echo "Install ${TOOL[0]}"
                 $PACKAGE_MANAGER $INSTALL ${TOOL[0]}
