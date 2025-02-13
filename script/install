@@ -61,7 +61,7 @@ installCliTools() {
             if has ${BIN_NAME}; then
                 # Force tools to be installed via homebrew on macos
                 # git comes preinstalled, but we want the homebrew version
-                if [ $PLATFORM == 'darwin' ] && [[ brew_installed ${BIN_NAME} == 1 ]]; then
+                if [ $PLATFORM == 'darwin' ] && ! brew_installed ${BIN_NAME}; then
                     echo "Install ${TOOL[0]}"
                     $PACKAGE_MANAGER $INSTALL ${TOOL[0]}
                 else

@@ -4,5 +4,11 @@ source ./script/install
 
 echo "Update dotfiles"
 
+platform="$(uname -s | tr '[:upper:]' '[:lower:]')"
+
+if [[ "$platform" == "darwin" ]]; then
+    installHomebrew
+fi
+
 installCliTools
 installCasks
