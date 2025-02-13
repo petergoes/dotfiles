@@ -4,16 +4,14 @@ echo "Setup a new environment"
 
 source ./script/install
 
-if [ "$1" == "homebrew" ] || [ "$1" == 'brew' ]; then
+platform="$(uname -s | tr '[:upper:]' '[:lower:]')"
+
+if [ $platform == 'darwin' ]; then
     installHomebrew
-fi;
-
-if [ "$1" == "" ]; then
-    echo "Please provide installer"
-    exit 1
-fi;
-
-installCliTools
+    installCliTools brew
+else
+    installCliTools apt
+fi
 
 echo "Create .conf directory"
 mkdir $HOME/.config
