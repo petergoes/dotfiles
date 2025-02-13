@@ -21,9 +21,14 @@ else
 fi
 
 installHomebrew() {
-    echo
-    echo "Install Homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if ! has brew; then
+        echo
+        echo "Install Homebrew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    else
+        echo "Homebrew already installed"
+        brew update
+    fi
 }
 
 installCliTools() {
