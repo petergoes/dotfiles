@@ -1,0 +1,14 @@
+#!/bin/bash
+
+installHomebrew() {
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sh
+}
+
+installCliTools() {
+    brew install curl
+    brew install zsh
+    brew install git
+    brew install neovim
+    brew install stow
+    brew install starship
+}
