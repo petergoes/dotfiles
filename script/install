@@ -7,7 +7,6 @@ if [ "$1" == "brew" ] || [ "$1" == "homebrew" ]; then
    PACKAGE_MANAGER="echo"
 elif [ "$1" == 'apt' ]; then
     PACKAGE_MANAGER="apt install -y"
-    # PACKAGE_MANAGER="echo"
 else
     echo "Please specify a package manager"
     exit 1
@@ -38,14 +37,13 @@ installCliTools() {
             echo "already installed"
             continue
         else
-            echo "Install ${VALUE[0]}"
+            echo "Install ${TOOL[0]}"
         fi
 
         if [ -z ${VALUE[1]+x} ]; then
-            # Install with the package manager
             $PACKAGE_MANAGER ${TOOL[0]}
         else
-            echo "install with curl ${VALUE[1]}"
+            curl -sS ${VALUE[1]} | sh
         fi
     done < ./script/cli-tools
 }
