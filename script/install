@@ -4,9 +4,19 @@ has() {
   command -v "$1" 1>/dev/null 2>&1
 }
 
+brew_installed() {
+    cellar=$(brew --cellar)
+    if [ ! -f "$cellar/$1" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 PACKAGE_MANAGER=
 INSTALL=
 UPDATE=
+CELLAR=
 
 PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
@@ -14,6 +24,7 @@ if [[ "$PLATFORM" == "darwin" ]]; then
     PACKAGE_MANAGER="brew"
     INSTALL="install"
     UPDATE="upgrade"
+    CELLAR=$(brew --cellar)
 else
     PACKAGE_MANAGER="apt"
     INSTALL="install -y"
@@ -50,7 +61,7 @@ installCliTools() {
             if has ${BIN_NAME}; then
                 # Force tools to be installed via homebrew on macos
                 # git comes preinstalled, but we want the homebrew version
-                if [ $PLATFORM == 'darwin' ] && [[ ! ${BIN_NAME} =~ homebrew ]]; then
+                if [ $PLATFORM == 'darwin' ] && [[ brew_installed ${BIN_NAME} == 1 ]]; then
                     echo "Install ${TOOL[0]}"
                     $PACKAGE_MANAGER $INSTALL ${TOOL[0]}
                 else
