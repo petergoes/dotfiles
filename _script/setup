@@ -1,5 +1,10 @@
 #!/bin/bash
 
+source install
+
+installHomebrew()
+installCliTools()
+
 # Create dir to contain config
 mkdir ~/.config
 
