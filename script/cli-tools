@@ -1,6 +1,6 @@
 curl
 zsh
 git
-neovim
+neovim,nvim
 stow
-starship
+starship https://starship.rs/install.sh

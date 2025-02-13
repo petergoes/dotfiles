@@ -1,14 +1,11 @@
 #!/bin/bash
 
+echo "Setup a new environment"
+
 source ./script/install
 
-if [ "$1" == "homebrew" ]; then
+if [ "$1" == "homebrew" ] || [ "$1" == 'brew' ]; then
     installHomebrew
-    installCliToolsBrew
-fi;
-
-if [ "$1" == "apt-get" ]; then
-    installCliToolsApt
 fi;
 
 if [ "$1" == "" ]; then
@@ -16,13 +13,15 @@ if [ "$1" == "" ]; then
     exit 1
 fi;
 
+installCliTools
+
 # Create dir to contain config
-mkdir /home/petergoes/.config
+# mkdir $HOME/.config
 
-mkdir /home/petergoes/.config/zsh
-mkdir /home/petergoes/.config/nvim
+# mkdir $HOME/.config/zsh
+# mkdir $HOME/.config/nvim
 
-# Run stow for each package
-stow --target=../.config/nvim nvim
-stow zsh
-stow starship
+# # Run stow for each package
+# stow --target=../.config/nvim nvim
+# stow zsh
+# stow starship
