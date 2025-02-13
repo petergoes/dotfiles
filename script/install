@@ -89,12 +89,12 @@ installCasks() {
         IFS=' '; VALUE=($cask); unset IFS;
 
         echo
-        if has $cask; then
-            echo "Updating $cask"
-            brew update $cask
-        else
+        if ! brew info $cask &>/dev/null; then
             echo "Install $cask"
             $PACKAGE_MANAGER $INSTALL --cask $cask
+        else
+            echo "Updating $cask"
+            brew update $cask
         fi
     done < ./script/casks
 }
