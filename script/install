@@ -94,7 +94,7 @@ installCasks() {
             $PACKAGE_MANAGER $INSTALL --cask $cask
         else
             echo "Updating $cask"
-            brew update $cask
+            brew upgrade $cask
         fi
     done < ./script/casks
 }
