@@ -5,9 +5,22 @@ installHomebrew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-installCliTools() {
-    echo "Install Cli Tools"
-    while read p; do
-        echo "Install $p"
+installCliToolsApt() {
+    echo "Install Cli Tools with apt-get"
+
+    while read tool; do
+        echo "Install $tool"
+        apt-get install -y $tool
+        echo
+    done < ./script/cli-tools
+}
+
+installCliToolsBrew() {
+    echo "Install Cli Tools with Homebrew"
+
+    while read tool; do
+        echo "Install $tool"
+        brew install $tool
+        echo
     done < ./script/cli-tools
 }

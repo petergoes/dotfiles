@@ -2,14 +2,25 @@
 
 source ./script/install
 
-# installHomebrew
-installCliTools
+if [ "$1" == "homebrew" ]; then
+    installHomebrew
+    installCliToolsBrew
+fi;
+
+if [ "$1" == "apt-get" ]; then
+    installCliToolsApt
+fi;
+
+if [ "$1" == "" ]; then
+    echo "Please provide installer"
+    exit 1
+fi;
 
 # Create dir to contain config
-mkdir ~/.config
+mkdir /home/petergoes/.config
 
-mkdir ~/.config/zsh
-mkdir ~/.config/nvim
+mkdir /home/petergoes/.config/zsh
+mkdir /home/petergoes/.config/nvim
 
 # Run stow for each package
 stow --target=../.config/nvim nvim
