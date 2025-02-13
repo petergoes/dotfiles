@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if has curl; then
+    echo "has curl"
+fi
+
+if has git; then
+    echo "has git"
+fi
