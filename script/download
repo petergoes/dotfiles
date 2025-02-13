@@ -1,13 +1,44 @@
 #!/usr/bin/env sh
 
+set -eu
+
+TARGET_DIR=$HOME/.dotfiles
+
 has() {
   command -v "$1" 1>/dev/null 2>&1
 }
 
-if has curl; then
-    echo "has curl"
+echo "Setting up a new Mac"
+echo
+if ! has git; then
+    echo "Git is not available. Make sure to install that first"
+    exit 1
 fi
 
-if has git; then
-    echo "has git"
+# Check if the dotfiles repo (github.com/petergoes/dotfiles) is already cloned
+# If it is, pull the latest changes
+if grep "petergoes/dotfiles" $TARGET_DIR/.git/config 1>/dev/null 2>&1; then
+    echo "Repo is already checked out, pulling latest changes"
+    if [[ ! $(git rev-parse --abbrev-ref HEAD) == 'v2' ]]; then
+        git checkout v2
+    fi
+    git pull
+    cd $TARGET_DIR
+    ./script/update
+    exit 0
+
+# When the repo is not cloned, test if the target directory exists.
+# If it does, abort because we don't want to overwrite existing files'
+elif test -d $TARGET_DIR; then
+    echo "$TARGET_DIR already exists but it is not this repo"
+    exit 1
 fi
+
+# The target directory is not present, clone it
+echo "Cloning the repo"
+git clone https://github.com/petergoes/dotfiles $TARGET_DIR
+
+# Once cloned, cd into it and start setup
+echo
+cd $TARGET_DIR
+./script/setup
