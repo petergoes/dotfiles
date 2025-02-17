@@ -1,4 +1,6 @@
 git
+fd
+jq
 neovim,nvim
 stow
 starship https://starship.rs/install.sh
