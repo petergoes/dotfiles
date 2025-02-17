@@ -104,8 +104,7 @@ installZshPlugin() {
 	branch=$2
 	repo=$3
 
-	if [ ! -f "zsh/.config/plugins/$name/.git/config" ]; then
-		echo "File not found!"
+	if test -d "zsh/.config/plugins/$name"; then
 		git remote add -f $name $repo
 		git subtree add --prefix zsh/.config/zsh/plugins/$name $name $branch --squash
 	else
