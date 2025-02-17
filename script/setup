@@ -17,6 +17,7 @@ installZshPlugin fzf-tab main https://github.com/Aloxaf/fzf-tab.git
 
 # Install NodeJS
 fnm install --lts
+fnm use
 
 echo "Create .conf directory"
 mkdir $HOME/.config
