@@ -12,3 +12,8 @@ fi
 
 installCliTools
 installCasks
+
+# Update zsh plugins
+# Plugins via git subtree, see: https://www.atlassian.com/git/tutorials/git-subtree
+git fetch fzf-tab main
+git subtree pull --prefix zsh/.config/zsh/plugins/fzf-tab master --squash
