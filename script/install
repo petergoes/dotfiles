@@ -104,10 +104,12 @@ installZshPlugin() {
 	branch=$2
 	repo=$3
 
-	if test -d "zsh/.config/plugins/$name"; then
+	if test -d "./zsh/.config/plugins/$name"; then
+		echo "Add zsh plugin $name"
 		git remote add -f $name $repo
 		git subtree add --prefix zsh/.config/zsh/plugins/$name $name $branch --squash
 	else
+		echo "Update zsh plugin $name"
 		git fetch $name $branch
 		git subtree pull --prefix zsh/.config/zsh/plugins/$name $name $branch --squash
 	fi
