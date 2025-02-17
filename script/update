@@ -13,4 +13,4 @@ fi
 installCliTools
 installCasks
 
-installZshPlugin fzf-tab main https://github.com/Aloxaf/fzf-tab.git
+installZshPlugin fzf-tab master https://github.com/Aloxaf/fzf-tab.git
