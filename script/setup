@@ -17,10 +17,12 @@ echo "Create .conf directory"
 mkdir $HOME/.config
 mkdir $HOME/.config/zsh
 mkdir $HOME/.config/nvim
+mkdir $HOME/.config/ghostty
 
 echo 'Run stow commands'
 stow --target=../.config/nvim nvim
 stow --target=../.config starship
+stow --target=$HOME/.config/ghostty ghostty
 stow zsh
 
 source $HOME/.zshrc
