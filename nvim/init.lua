@@ -1,8 +1,11 @@
+require('options')
+require('keymaps')
+require('misc')
+
 require("config.lazy")
 
 vim.cmd [[
-	colorscheme tokyonight
-	TransparentEnable
+	colorscheme onedark
 ]]
 
 vim.api.nvim_create_autocmd("BufRead", {
