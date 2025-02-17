@@ -13,7 +13,13 @@ fi
 installCliTools
 installCasks
 
+echo
+echo "Handle zsh plugins"
 installZshPlugin fzf-tab master https://github.com/Aloxaf/fzf-tab.git
+
+gh config set git_protocol ssh
+gh config set browser open
+gh auth login
 
 # Install NodeJS
 fnm install --lts
@@ -26,9 +32,9 @@ mkdir $HOME/.config/nvim
 mkdir $HOME/.config/ghostty
 
 echo 'Run stow commands'
-stow --target=../.config/nvim nvim
-stow --target=../.config starship
-stow --target=$HOME/.config/ghostty ghostty
 stow zsh
+stow --target=$HOME/.config starship
+stow --target=$HOME/.config/nvim nvim
+stow --target=$HOME/.config/ghostty ghostty
 
 source $HOME/.zshrc

@@ -1,9 +1,19 @@
 zsh-syntax-highlighting
 git
+gh
+tig
+git-interactive-rebase-tool
+git-delta
+bat
 fd
 jq
 fzf
 neovim,nvim
 fnm
+deno
 stow
 starship https://starship.rs/install.sh
+httpie
+thefuck
+tldr
+glow
