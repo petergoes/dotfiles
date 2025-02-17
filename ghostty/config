@@ -1,5 +1,6 @@
 font-family = "Fira Code"
 font-size = 14
+adjust-cell-height = 20%
 
 window-padding-x = 20
 window-padding-y = 20

@@ -16,6 +16,7 @@ return {
 				"ts_ls",
 				"svelte",
 				"stylelint_lsp",
+				"marksman",
 			},
 		}
 
@@ -24,7 +25,7 @@ return {
 		require('lspconfig').ts_ls.setup {}
 		require('lspconfig').svelte.setup {}
 		require('lspconfig').stylelint_lsp.setup {}
-
+		require('lspconfig').marksman.setup{}
 
 	end
 }

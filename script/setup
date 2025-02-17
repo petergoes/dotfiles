@@ -13,6 +13,8 @@ fi
 installCliTools
 installCasks
 
+installZshPlugin fzf-tab main https://github.com/Aloxaf/fzf-tab.git
+
 echo "Create .conf directory"
 mkdir $HOME/.config
 mkdir $HOME/.config/zsh

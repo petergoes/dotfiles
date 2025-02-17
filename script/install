@@ -98,3 +98,18 @@ installCasks() {
         fi
     done < ./script/casks
 }
+
+installZshPlugin() {
+	name=$1
+	branch=$2
+	repo=$3
+
+	if [ ! -f zsh/.config/plugins/fzf-tab/.git/config ]; then
+		echo "File not found!"
+		git remote add -f $name $repo
+		git subtree add --prefix zsh/.config/zsh/plugins/$name $name $branch --squash
+	else
+		git fetch $name $branch
+		git subtree pull --prefix zsh/.config/zsh/plugins/$name $name $branch --squash
+	fi
+}
