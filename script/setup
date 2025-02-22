@@ -25,4 +25,7 @@ gh auth login
 fnm install --lts
 fnm use
 
+# Prevent Last login message
+touch $HOME/.hushlogin
+
 source ./script/stow

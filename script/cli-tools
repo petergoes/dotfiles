@@ -1,4 +1,5 @@
 zsh-syntax-highlighting
+zsh-autosuggestions
 git
 gh
 tig
@@ -19,3 +20,4 @@ httpie
 thefuck
 tldr
 glow
+skhd koekeishiya/formulae/skhd

@@ -13,8 +13,8 @@ source $HOME/.config/zsh/alias.zsh
 source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.zsh
 
 # Add syntax highlighting for commands (https://github.com/zsh-users/zsh-syntax-highlighting)
-local HOMEBREW_PREFIX="$(brew shellenv | grep HOMEBREW_PREFIX | awk '{print $2}' FS='"')"
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load git completion. See https://stackoverflow.com/a/58517668
 zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/} 

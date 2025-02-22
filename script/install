@@ -75,22 +75,25 @@ installCliTools() {
                 # git comes preinstalled, but we want the homebrew version
                 if [ $PLATFORM == 'darwin' ] && ! brew_installed ${BIN_NAME}; then
                     echo "Install ${TOOL[0]}"
-                    $PACKAGE_MANAGER $INSTALL ${TOOL[0]} --quiet
+                    $PACKAGE_MANAGER $INSTALL ${TOOL[0]} --quiet --formula
                 else
 					if isOutdated ${TOOL[0]}; then
 						echo "Updating ${TOOL[0]}"
-						$PACKAGE_MANAGER $UPDATE ${TOOL[0]} --quiet
+						$PACKAGE_MANAGER $UPDATE ${TOOL[0]} --quiet --formula
 					fi
                 fi
             else
                 echo "Install ${TOOL[0]}"
-                $PACKAGE_MANAGER $INSTALL ${TOOL[0]} --quiet
+                $PACKAGE_MANAGER $INSTALL ${TOOL[0]} --quiet --formula
             fi
-        else
-            if ! has ${BIN_NAME}; then
+        elif ! has ${BIN_NAME}; then
+			if echo ${VALUE[1]} | grep -q "https"; then
                 echo "Install ${TOOL[0]}"
                 curl -sS ${VALUE[1]} | sh -s -- -y
-            fi
+			elif echo ${VALUE[1]} | grep -q "formulae"; then
+                echo "Install ${TOOL[0]}"
+				brew install --formula ${VALUE[1]}
+			fi
         fi
     done < ./script/cli-tools
 }
