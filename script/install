@@ -4,6 +4,10 @@ has() {
   command -v "$1" 1>/dev/null 2>&1
 }
 
+hasCask() {
+	brew list --cask | grep $1 1>/dev/null 2>&1
+}
+
 brew_installed() {
     cellar=$(brew --cellar)
     if [ ! -f "$cellar/$1" ]; then
@@ -89,7 +93,7 @@ installCasks() {
         IFS=' '; VALUE=($cask); unset IFS;
 
         echo
-        if ! brew info $cask &>/dev/null; then
+        if ! hasCask $cask; then
             echo "Install $cask"
             $PACKAGE_MANAGER $INSTALL --cask $cask
         else
