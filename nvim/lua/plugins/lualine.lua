@@ -7,21 +7,23 @@ return {
 				icons_enabled = true,
 				component_separators = { left = '', right = '' },
 				section_separators = { left = '', right = '' },
-				globalstatus = true
+				globalstatus = true,
+				disabled_filetypes = { 'dashboard', 'NvimTree', 'lazygit' },
 			},
 			sections = {
-				lualine_x = {
-					{
-						require("noice").api.statusline.mode.get,
-						cond = require("noice").api.statusline.mode.has,
-						color = { fg = "#ff9e64" },
-					},
-					{
-						require("noice").api.status.command.get,
-						cond = require("noice").api.status.command.has,
-						color = { fg = "#ff9e64" },
-					},
-				},
+				lualine_x = { 'filetype' },
+				-- lualine_x = {
+				-- 	{
+				-- 		require("noice").api.statusline.mode.get,
+				-- 		cond = require("noice").api.statusline.mode.has,
+				-- 		color = { fg = "#ff9e64" },
+				-- 	},
+				-- 	{
+				-- 		require("noice").api.status.command.get,
+				-- 		cond = require("noice").api.status.command.has,
+				-- 		color = { fg = "#ff9e64" },
+				-- 	},
+				-- },
 				-- lualine_a = {
 				--   {
 				-- 	'buffers',

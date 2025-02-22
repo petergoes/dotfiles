@@ -21,6 +21,7 @@ return {
 
                     "html",
                     "css",
+					"scss",
                     "javascript",
                     "typescript",
                     "jsdoc",

@@ -27,4 +27,14 @@ vim.g.maplocalleader = ' '
 vim.o.swapfile = false
 
 -- Yank to clipboard
-vim.api.nvim_set_option("clipboard","unnamed")
+vim.opt.clipboard:append('unnamedplus')
+
+vim.o.signcolumn = 'yes'
+
+-- Enable folding
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
