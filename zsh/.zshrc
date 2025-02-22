@@ -20,5 +20,8 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/} 
 fpath=(~/.zsh $fpath)
 
+# Needed for lazygit to load its condig
+export XDG_CONFIG_HOME="$HOME/.config"
+
 autoload -Uz compinit && compinit -u
 
