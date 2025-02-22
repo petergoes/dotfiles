@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+# --color=gutter:#232A37
+# '
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#3A3F4D
+  --color=hl:#5f87af,hl+:#5fd7ff,info:#EDBF70,marker:#8CC470
+  --color=prompt:#FF0072,spinner:#D374E3,pointer:#D374E3,header:#87afaf
+  --color=border:#5A6372,label:#aeaeae,query:#d9d9d9
+  --preview-window="border-rounded" --padding="1" --prompt="❯ " --marker="♦"
+  --pointer="➡" --separator="─" --scrollbar="│" --layout="reverse"
+  --info="right"'
