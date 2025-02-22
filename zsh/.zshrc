@@ -2,6 +2,10 @@
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 
+source <(fzf --zsh)
+source $HOME/.config/fzf/config
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+
 # Load custom aliases
 source $HOME/.config/zsh/alias.zsh
 
