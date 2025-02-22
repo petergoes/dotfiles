@@ -3,6 +3,8 @@
 return {
 	"williamboman/mason-lspconfig.nvim",
 
+	event = "User FTNotDashboard",
+
 	dependencies = {
 		"williamboman/mason.nvim",
 		"neovim/nvim-lspconfig",

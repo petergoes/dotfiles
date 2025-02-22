@@ -1,13 +1,11 @@
 return {
 	{
 		"nvim-tree/nvim-tree.lua",
-		config = function()
-			require("nvim-tree").setup()
-		end
+		cmd = "NvimTreeFindFileToggle",
+		opts = {},
 	},
 
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "navarasu/onedark.nvim",       lazy = false, priority = 1000 },
-	{ "folke/tokyonight.nvim",       lazy = false, priority = 1000 },
 
 }

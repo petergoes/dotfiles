@@ -1,5 +1,6 @@
 return {
 	'nvim-lualine/lualine.nvim',
+	event = "User FTNotDashboard",
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	config = function()
 		require('lualine').setup {

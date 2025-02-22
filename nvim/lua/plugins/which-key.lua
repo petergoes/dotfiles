@@ -1,6 +1,6 @@
 return {
 	"folke/which-key.nvim",
-	event = "VeryLazy",
+	event = "User FTNotDashboard",
 	opts = {
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
