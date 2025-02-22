@@ -8,6 +8,7 @@ lazygit
 bat
 fd
 jq
+rg
 fzf
 neovim,nvim
 fnm
