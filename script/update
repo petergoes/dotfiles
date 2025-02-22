@@ -16,3 +16,5 @@ installCasks
 echo
 echo "Handle zsh plugins"
 installZshPlugin fzf-tab master https://github.com/Aloxaf/fzf-tab.git
+
+source ./script/stow
