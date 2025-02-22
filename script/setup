@@ -31,6 +31,7 @@ mkdir $HOME/.config/zsh
 mkdir $HOME/.config/fzf
 mkdir $HOME/.config/nvim
 mkdir $HOME/.config/ghostty
+mkdir $HOME/.config/lazygit
 
 echo 'Run stow commands'
 stow zsh
@@ -38,5 +39,5 @@ stow --target=$HOME/.config starship
 stow --target=$HOME/.config/fzf fzf 
 stow --target=$HOME/.config/nvim nvim
 stow --target=$HOME/.config/ghostty ghostty
+stow --target=$HOME/.config/lazygit lazygit
 
-source $HOME/.zshrc
