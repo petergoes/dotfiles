@@ -9,6 +9,11 @@ source $HOME/.config/fzf/config
 # Load custom aliases
 source $HOME/.config/zsh/alias.zsh
 
+# Load custom tools
+source $HOME/.config/zsh/tools/jump.zsh
+source $HOME/.config/zsh/tools/nvm.zsh
+source $HOME/.config/zsh/tools/remove-ds-store-files.zsh
+source $HOME/.config/zsh/tools/thefuck.zsh
 
 # Add syntax highlighting for commands (https://github.com/zsh-users/zsh-syntax-highlighting)
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
