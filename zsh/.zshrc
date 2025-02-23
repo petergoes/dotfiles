@@ -1,6 +1,7 @@
 # Use Starship for prompt decoration (https://starship.rs/)
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
+eval "$(thefuck --alias)"
 
 # Load FZF config
 source $HOME/.config/fzf/config
