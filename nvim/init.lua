@@ -9,6 +9,10 @@ vim.cmd [[
 
 	"Hide statusbar until lualine is loaded
 	set laststatus=0
+
+	:hi Pmenu guibg=#434c5e
+	":hi FloatBorder guibg=#434c5e
+	:hi NormalFloat guibg=#434c5e
 ]]
 
 vim.opt.foldenable = true

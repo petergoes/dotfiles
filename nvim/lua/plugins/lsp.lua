@@ -11,6 +11,24 @@ return {
 	},
 
 	config = function()
+		local util = require 'lspconfig.util'
+		local function migrate_to_svelte_5()
+			local params = {
+				command = 'migrate_to_svelte_5',
+				arguments = { vim.uri_from_bufnr(0) },
+			}
+
+			local clients = util.get_lsp_clients({
+				bufnr = vim.api.nvim_get_current_buf(),
+				name = 'svelte',
+			})
+			for _, client in ipairs(clients) do
+				client.request('workspace/executeCommand', params, nil, 0)
+			end
+		end
+
+
+
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -52,7 +70,14 @@ return {
 			capabilities = capabilities,
 		}
 		require('lspconfig').html.setup {}
-		require('lspconfig').svelte.setup {}
+		require('lspconfig').svelte.setup {
+			commands = {
+				MigrateToSvelte5 = {
+					migrate_to_svelte_5,
+					description = 'Migrate Component to Svelte 5 Syntax',
+				},
+			},
+		}
 		require('lspconfig').stylelint_lsp.setup {
 			filetypes = { 'css', 'scss', 'less', 'postcss', 'svelte' },
 			settings = {

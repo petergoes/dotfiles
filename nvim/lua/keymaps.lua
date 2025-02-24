@@ -9,9 +9,12 @@ vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true })
 vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true })
 
 -- Finding things
-vim.api.nvim_set_keymap("n", "<leader>f", ":FzfLua files<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>F", ":FzfLua live_grep<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ss", ":FzfLua spell_suggest<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>f", ":FzfLua files<CR>", { noremap = true, desc = "Find files" })
+vim.api.nvim_set_keymap("n", "<leader>F", ":FzfLua live_grep<CR>", { noremap = true, desc = "Find in project" })
+vim.api.nvim_set_keymap("n", "<leader>ss", ":FzfLua spell_suggest<CR>",
+	{ noremap = true, desc = "Open Spell suggestions" })
+vim.api.nvim_set_keymap("n", "<leader>st", ":lua Snacks.picker.todo_comments()<CR>",
+	{ noremap = true, desc = "Search for @TODO, @FIX, @FIXME comments" })
 
 -- Filebrowser
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>", { noremap = true })
@@ -22,9 +25,7 @@ vim.api.nvim_set_keymap("n", "<leader>-", ":split<CR>", { noremap = true })
 
 -- Dismiss notifications
 vim.keymap.set("n", "<Esc>",
-	function()
-		require("notify").dismiss({ pending = true, silent = true })
-	end,
+	":lua Snacks.notifier.hide()<CR>",
 	{ desc = "dismiss notify popup and clear hlsearch" }
 )
 
@@ -39,6 +40,9 @@ vim.api.nvim_set_keymap("n", "<leader>bf", ":FzfLua buffers<CR>", { noremap = tr
 vim.api.nvim_set_keymap("n", "<leader>bn", ":BufferLineCycleNext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>bb", ":BufferLineCyclePrev<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>bp", ":BufferLinePick<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>bq", ":lua Snacks.bufdelete()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-]>", ":BufferLineCycleNext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-[>", ":BufferLineCyclePrev<CR>", { noremap = true })
 
 -- Git
 vim.api.nvim_set_keymap("n", "<leader>gl", ":LazyGit<CR>", { noremap = true })

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir -p $HOME/.config/bat
 mkdir -p $HOME/.config/zsh
 mkdir -p $HOME/.config/fzf
 mkdir -p $HOME/.config/nvim
@@ -9,6 +10,7 @@ mkdir -p $HOME/.config/skhd
 
 echo 'Run stow commands'
 stow zsh
+stow --target=$HOME/.config/bat bat
 stow --target=$HOME/.config starship
 stow --target=$HOME/.config/fzf fzf 
 stow --target=$HOME/.config/nvim nvim
