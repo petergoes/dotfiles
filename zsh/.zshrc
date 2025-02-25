@@ -9,6 +9,9 @@ source $HOME/.config/fzf/config
 # Load custom aliases
 source $HOME/.config/zsh/alias.zsh
 
+# Load custom env 
+source $HOME/.config/zsh/env.zsh
+
 # Load custom tools
 source $HOME/.config/zsh/tools/jump.zsh
 source $HOME/.config/zsh/tools/nvm.zsh
