@@ -35,6 +35,6 @@ vim.o.signcolumn = 'yes'
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
+vim.opt.foldtext = ""
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"

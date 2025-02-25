@@ -15,13 +15,6 @@ vim.cmd [[
 	:hi NormalFloat guibg=#434c5e
 ]]
 
-vim.opt.foldenable = true
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
-
 vim.api.nvim_create_autocmd("BufRead", {
 	pattern = "*/.git/COMMIT_EDITMSG",
 	command = "norm! j"

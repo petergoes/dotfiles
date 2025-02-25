@@ -33,6 +33,9 @@ return {
 					"php",
 				},
 				highlight = { enable = true },
+				folding = {
+					enable = true
+				}
 			})
 		end
 	}

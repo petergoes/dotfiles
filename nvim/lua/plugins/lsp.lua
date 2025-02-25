@@ -44,6 +44,7 @@ return {
 				"svelte",
 				"stylelint_lsp",
 				"marksman",
+				"jsonls",
 			},
 		}
 
@@ -89,5 +90,6 @@ return {
 			}
 		}
 		require('lspconfig').marksman.setup {}
+		require('lspconfig').jsonls.setup {}
 	end
 }
