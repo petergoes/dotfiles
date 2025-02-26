@@ -5,7 +5,7 @@ gh
 tig
 git-interactive-rebase-tool
 git-delta
-lazygit
+lazygit jesseduffield/lazygit/lazygit
 bat
 fd
 jq
