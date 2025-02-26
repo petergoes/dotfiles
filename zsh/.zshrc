@@ -3,6 +3,9 @@ eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(thefuck --alias)"
 
+# Load exa config
+source $HOME/.config/eza/eza.zsh
+
 # Load FZF config
 source $HOME/.config/fzf/config
 
