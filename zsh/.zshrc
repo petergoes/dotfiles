@@ -2,6 +2,7 @@
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(thefuck --alias)"
+eval "$(zoxide init zsh)"
 
 # Load exa config
 source $HOME/.config/eza/eza.zsh
