@@ -6,6 +6,7 @@ vim.wo.number = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
+vim.o.mousemoveevent = true
 
 -- Save undo history
 vim.o.undofile = true

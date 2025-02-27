@@ -24,7 +24,7 @@ return {
 	-- Git Signs
 	{
 		"lewis6991/gitsigns.nvim",
-		cmd = "Gitsigns",
+		event = "User FTNotDashboard",
 		opts = {},
 	},
 }
