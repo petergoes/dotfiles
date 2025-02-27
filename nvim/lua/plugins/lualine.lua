@@ -3,8 +3,13 @@ return {
 	event = "User FTNotDashboard",
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	config = function()
+		local nord = require 'lualine.themes.nord'
+		nord.normal.b.bg = '#4C566A'
+		nord.normal.c.bg = '#2E3440'
+
 		require('lualine').setup {
 			options = {
+				theme = nord,
 				icons_enabled = true,
 				component_separators = { left = '', right = '' },
 				section_separators = { left = '', right = '' },
@@ -13,23 +18,6 @@ return {
 			},
 			sections = {
 				lualine_x = { 'filetype' },
-				-- lualine_x = {
-				-- 	{
-				-- 		require("noice").api.statusline.mode.get,
-				-- 		cond = require("noice").api.statusline.mode.has,
-				-- 		color = { fg = "#ff9e64" },
-				-- 	},
-				-- 	{
-				-- 		require("noice").api.status.command.get,
-				-- 		cond = require("noice").api.status.command.has,
-				-- 		color = { fg = "#ff9e64" },
-				-- 	},
-				-- },
-				-- lualine_a = {
-				--   {
-				-- 	'buffers',
-				--   }
-				-- }
 				lualine_c = {
 					{
 						'filename',
@@ -39,5 +27,7 @@ return {
 				}
 			}
 		}
+
+		vim.api.nvim_set_hl(0, 'lualine_a_normal', { fg = '#3B4252', bg = '#88C0D0', bold = true })
 	end
 }

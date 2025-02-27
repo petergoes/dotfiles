@@ -5,14 +5,10 @@ require('misc')
 require("config.lazy")
 
 vim.cmd [[
-	colorscheme onedark
+	colorscheme nord
 
 	"Hide statusbar until lualine is loaded
 	set laststatus=0
-
-	:hi Pmenu guibg=#434c5e
-	":hi FloatBorder guibg=#434c5e
-	:hi NormalFloat guibg=#434c5e
 ]]
 
 vim.api.nvim_create_autocmd("BufRead", {
