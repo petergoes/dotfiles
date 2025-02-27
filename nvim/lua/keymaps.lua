@@ -17,7 +17,20 @@ vim.api.nvim_set_keymap("n", "<leader>st", ":lua Snacks.picker.todo_comments()<C
 	{ noremap = true, desc = "Search for @TODO, @FIX, @FIXME comments" })
 
 -- Filebrowser
-vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>", { noremap = true })
+-- Toggle the file browser. Use this instead of NvimTreeFindFileToggle because
+-- when splits are open, and the the filetree is open and the cursor is outside
+-- the tree, you can still focus it instead of closing
+vim.keymap.set("n",
+	"<leader>e",
+	function()
+		if (vim.bo.filetype == 'NvimTree') then
+			vim.cmd [[ :NvimTreeClose ]]
+		else
+			vim.cmd [[ :NvimTreeFindFile ]]
+		end
+	end,
+	{ noremap = true, desc = "Toggle File browser" }
+)
 
 -- Split panes
 vim.api.nvim_set_keymap("n", "<leader>\\", ":vsplit<CR>", { noremap = true })
