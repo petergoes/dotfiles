@@ -8,6 +8,7 @@ return {
 			require('mini.pairs').setup()
 			require('mini.align').setup()
 			require('mini.surround').setup()
+			require('mini.cursorword').setup()
 		end
 	},
 }
