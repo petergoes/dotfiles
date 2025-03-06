@@ -1,8 +1,16 @@
+-- Disable coping replaced / deleted text
+vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true })
+vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true })
+vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true })
+vim.api.nvim_set_keymap("v", "p", '"_dp', { noremap = true })
+
 -- Move with Cmd-[hjkl] between panels
 vim.api.nvim_set_keymap("n", "<c-k>", ":wincmd k<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-j>", ":wincmd j<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-h>", ":wincmd h<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-[>", ":wincmd h<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-l>", ":wincmd l<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-]>", ":wincmd l<CR>", { noremap = true })
 
 -- Keep selection after indentation changes
 vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true })
@@ -43,10 +51,12 @@ vim.keymap.set("n", "<Esc>",
 )
 
 -- LSP stuff
-vim.api.nvim_set_keymap("n", "<leader>lh", ":lua vim.lsp.buf.hover()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>lh", ":lua vim.lsp.buf.hover()<CR>", { noremap = true, desc = "Hover" })
+vim.api.nvim_set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { noremap = true, desc = "Format" })
+vim.api.nvim_set_keymap("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", { noremap = true, desc = "Rename" })
+vim.api.nvim_set_keymap("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", { noremap = true, desc = "Code Action" })
+vim.api.nvim_set_keymap("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", { noremap = true, desc = "Code Action" })
+vim.api.nvim_set_keymap("n", "<leader>gd", ":lua vim.lsp.buf.definition()<CR>", { noremap = true, desc = "Definition" })
 
 -- Buffers
 vim.api.nvim_set_keymap("n", "<leader>bf", ":FzfLua buffers<CR>", { noremap = true })
@@ -54,6 +64,7 @@ vim.api.nvim_set_keymap("n", "<leader>bn", ":BufferLineCycleNext<CR>", { noremap
 vim.api.nvim_set_keymap("n", "<leader>bb", ":BufferLineCyclePrev<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>bp", ":BufferLinePick<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>bq", ":lua Snacks.bufdelete()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>bc", ":lua Snacks.bufdelete()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-]>", ":BufferLineCycleNext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-[>", ":BufferLineCyclePrev<CR>", { noremap = true })
 
