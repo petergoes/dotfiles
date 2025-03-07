@@ -18,6 +18,8 @@ vim.o.smartcase = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
+vim.opt.splitright = true
+
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key
 -- See `:help mapleader`
