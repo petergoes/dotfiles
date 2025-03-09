@@ -1,8 +1,5 @@
 -- Disable coping replaced / deleted text
-vim.api.nvim_set_keymap("n", "d", '"_d', { noremap = true })
-vim.api.nvim_set_keymap("n", "x", '"_x', { noremap = true })
-vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true })
-vim.api.nvim_set_keymap("v", "p", '"_dp', { noremap = true })
+vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true })
 
 -- Move with Cmd-[hjkl] between panels
 vim.api.nvim_set_keymap("n", "<c-k>", ":wincmd k<CR>", { noremap = true })
