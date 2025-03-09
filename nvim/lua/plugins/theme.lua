@@ -1,4 +1,14 @@
 return {
+	{ 'xiyaowong/transparent.nvim' },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		opts = {
+			flavour = "frappe",
+			transparent_background = true,
+		}
+	},
 	{
 		"navarasu/onedark.nvim",
 		lazy = false,
@@ -33,7 +43,11 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = {
-			transparent = true,
+			transparent_background = true,
+			fzf = true,
+			mason = true,
+			lsp_trouble = true,
+			which_key = true,
 		},
 	},
 }

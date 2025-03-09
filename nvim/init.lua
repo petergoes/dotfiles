@@ -5,7 +5,8 @@ require('misc')
 require("config.lazy")
 
 vim.cmd [[
-	colorscheme nord
+	"colorscheme nord
+	colorscheme catppuccin-frappe
 
 	"Hide statusbar until lualine is loaded
 	set laststatus=0
