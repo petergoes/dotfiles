@@ -1,3 +1,5 @@
+export PATH=$PATH:$HOME/.config/git/custom-commands
+
 export CLICOLOR=1
 export LSCOLORS=bxfxcxdxbxegedabagaced
 export GH_EDITOR=nvim

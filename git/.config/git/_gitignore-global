@@ -1,0 +1,11 @@
+*~
+.DS_Store
+.vscode/
+jsconfig.json
+.figenv
+*.swp
+node_modules
+dist/
+build/
+
+*.vim

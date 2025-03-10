@@ -1,0 +1,3 @@
+[core]
+	excludesFile = ~/.config/git/_gitignore-global 
+	editor = nvim

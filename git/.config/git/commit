@@ -1,0 +1,4 @@
+[commit]
+	template = ~/.config/git/_commit-template
+	gpgsign = true
+

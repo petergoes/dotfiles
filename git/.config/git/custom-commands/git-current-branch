@@ -1,0 +1,10 @@
+#!/bin/bash
+
+BRANCH=$(git branch --show-current) 
+
+if [[ $1 == '' ]]
+then
+  echo $BRANCH | tr -d '\n' | pbcopy 
+  echo " > Copied '$BRANCH' to clipboard"
+fi	
+

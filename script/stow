@@ -10,6 +10,7 @@ mkdir -p $HOME/.config/lazygit
 
 echo 'Run stow commands'
 stow zsh
+stow git
 stow --target=$HOME/.config/bat bat
 stow --target=$HOME/.config starship
 stow --target=$HOME/.config/fzf fzf 

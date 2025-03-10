@@ -1,0 +1,17 @@
+[include]
+	path = ~/.config/git/alias
+	path = ~/.config/git/commit
+	path = ~/.config/git/core
+	path = ~/.config/git/init
+	path = ~/.config/git/sequence
+	path = ~/.config/git/tag
+	path = ~/.config/git/user
+
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJdE0KJWZAVA4E8tebWuLS9DRLHHpm9LZ4dyp1V2aA6o
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
