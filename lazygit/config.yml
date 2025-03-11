@@ -51,6 +51,21 @@ gui:
       - '#c6d0f5'
     searchingActiveBorderColor:
       - '#e5c890'
-
   authorColors:
     '*': '#babbf1'
+
+customCommands:
+  - key: 'n'
+    context: localBranches
+    description: 'New branch'
+    prompts:
+      - type: 'input'
+        title: 'What is the branch name?'
+        key: 'BranchName'
+        initialValue: ''
+      - type: 'input'
+        title: 'What it the prefix?'
+        key: 'Prefix'
+        initialValue: ''
+    command: 'git start {{.Form.Prefix}} {{.Form.BranchName}}'
+    loadingText: 'Creating Branch'
