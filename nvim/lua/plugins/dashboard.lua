@@ -3,6 +3,8 @@ return {
 	event = 'VimEnter',
 
 	opts = function()
+		local branch = vim.fn.system("git branch --show-current 2> /dev/null | tr -d '\n'")
+
 		local logo = {
 			[[                                                                       ]],
 			[[                                                                     ]],
@@ -15,6 +17,7 @@ return {
 			[[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
 			[[                                                                       ]],
 			vim.loop.cwd(),
+			branch,
 			[[                                                                       ]],
 		}
 
