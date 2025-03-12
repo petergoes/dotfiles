@@ -19,9 +19,6 @@ fi
 # If it is, pull the latest changes
 if grep "petergoes/dotfiles" $TARGET_DIR/.git/config 1>/dev/null 2>&1; then
     echo "Repo is already checked out, pulling latest changes"
-    if [[ ! $(git rev-parse --abbrev-ref HEAD) == 'v2' ]]; then
-        git checkout v2
-    fi
     git pull
     cd $TARGET_DIR
     ./script/update
@@ -40,5 +37,4 @@ git clone https://github.com/petergoes/dotfiles $TARGET_DIR
 # Once cloned, cd into it and start setup
 echo
 cd $TARGET_DIR
-git checkout v2
 ./script/setup
