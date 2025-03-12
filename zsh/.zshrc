@@ -10,11 +10,15 @@ if [[ "$PLATFORM" == "darwin" ]]; then
 fi
 
 if [[ "$PLATFORM" == "linux" ]]; then
+	# FNM
 	FNM_PATH="/home/petergoes/.local/share/fnm"
 	if [ -d "$FNM_PATH" ]; then
 		export PATH="/home/petergoes/.local/share/fnm:$PATH"
 		eval "$(fnm env --use-on-cd)"
 	fi
+
+	# Homebrew on Linux
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 # Load exa config
@@ -35,11 +39,9 @@ source $HOME/.config/zsh/tools/nvm.zsh
 source $HOME/.config/zsh/tools/remove-ds-store-files.zsh
 source $HOME/.config/zsh/tools/thefuck.zsh
 
-if [[ "$PLATFORM" == "darwin" ]]; then
-	# Add syntax highlighting for commands (https://github.com/zsh-users/zsh-syntax-highlighting)
-	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+# Add syntax highlighting for commands (https://github.com/zsh-users/zsh-syntax-highlighting)
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load git completion. See https://stackoverflow.com/a/58517668
 zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/} 
