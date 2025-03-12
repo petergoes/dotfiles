@@ -9,7 +9,7 @@ if [[ "$PLATFORM" == "darwin" ]]; then
 	eval "$(thefuck --alias)"
 fi
 
-if [[ "$PLATFORM" == 'linux']]; then
+if [[ "$PLATFORM" == "linux"]]; then
 	FNM_PATH="/home/petergoes/.local/share/fnm"
 	if [ -d "$FNM_PATH" ]; then
 		export PATH="/home/petergoes/.local/share/fnm:$PATH"
