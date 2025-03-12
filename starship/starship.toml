@@ -13,7 +13,7 @@ symbol = ' '
 format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [hostname]
-format = '\[[$ssh_symbol](bold bright-blue) on [$hostname](bold bright-red)\] '
+format = '\[[$ssh_symbol](bold bright-blue)on [$hostname](bold bright-red)\] '
 
 [username]
 format = '\[[$user]($style)\] '
