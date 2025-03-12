@@ -4,7 +4,7 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-format = '$hostname$directory$git_branch$git_commit$git_state$git_metrics$git_status$fill$all$character'
+format = '$hostname$username$directory$git_branch$git_commit$git_state$git_metrics$git_status$fill$all$character'
 
 [fill]
 symbol = ' '
@@ -13,4 +13,7 @@ symbol = ' '
 format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [hostname]
-ssh_only = false
+format = '\[[$ssh_symbol](bold bright-blue) on [$hostname](bold bright-red)\] '
+
+[username]
+format = '\[[$user]($style)\] '
