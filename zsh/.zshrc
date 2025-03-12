@@ -1,8 +1,13 @@
+PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')"
+
 # Use Starship for prompt decoration (https://starship.rs/)
 eval "$(starship init zsh)"
-eval "$(fnm env --use-on-cd)"
-eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
+
+if [[ "$PLATFORM" == "darwin" ]]; then
+	eval "$(fnm env --use-on-cd)"
+	eval "$(thefuck --alias)"
+fi
 
 # Load exa config
 source $HOME/.config/eza/eza.zsh
@@ -22,9 +27,11 @@ source $HOME/.config/zsh/tools/nvm.zsh
 source $HOME/.config/zsh/tools/remove-ds-store-files.zsh
 source $HOME/.config/zsh/tools/thefuck.zsh
 
-# Add syntax highlighting for commands (https://github.com/zsh-users/zsh-syntax-highlighting)
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ "$PLATFORM" == "darwin" ]]; then
+	# Add syntax highlighting for commands (https://github.com/zsh-users/zsh-syntax-highlighting)
+	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # Load git completion. See https://stackoverflow.com/a/58517668
 zstyle ':completion:*:*:git:*' user-commands ${${(M)${(k)commands}:#git-*}/git-/} 
