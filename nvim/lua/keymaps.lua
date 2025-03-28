@@ -42,13 +42,15 @@ vim.api.nvim_set_keymap("n", "<leader>\\", ":vsplit<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>-", ":split<CR>", { noremap = true })
 
 -- Dismiss notifications
-vim.keymap.set("n", "<Esc>",
+vim.keymap.set("n", "<leader>nc",
 	":lua Snacks.notifier.hide()<CR>",
 	{ desc = "dismiss notify popup and clear hlsearch" }
 )
 
 -- LSP stuff
 vim.api.nvim_set_keymap("n", "<leader>lh", ":lua vim.lsp.buf.hover()<CR>", { noremap = true, desc = "Hover" })
+vim.api.nvim_set_keymap("n", "<leader>ld", ":lua vim.diagnostic.open_float({ border = 'rounded' })<CR>",
+	{ noremap = true, desc = "Diagnostic" })
 vim.api.nvim_set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { noremap = true, desc = "Format" })
 vim.api.nvim_set_keymap("n", "<leader>lr", ":lua vim.lsp.buf.rename()<CR>", { noremap = true, desc = "Rename" })
 vim.api.nvim_set_keymap("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", { noremap = true, desc = "Code Action" })

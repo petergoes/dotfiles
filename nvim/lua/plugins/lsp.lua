@@ -27,15 +27,19 @@ return {
 			end
 		end
 
-
-
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-		require("mason").setup()
+		require("mason").setup({
+			ui = {
+				border = 'rounded'
+			}
+		})
+
 		require("mason-lspconfig").setup {
 			capabilities = capabilities,
 			ensure_installed = {
+				"astro",
 				"lua_ls",
 				"ts_ls",
 				"eslint",
@@ -79,6 +83,9 @@ return {
 				},
 			},
 		}
+		require('lspconfig').astro.setup {
+			capabilities = capabilities,
+		}
 		require('lspconfig').stylelint_lsp.setup {
 			filetypes = { 'css', 'scss', 'less', 'postcss', 'svelte' },
 			settings = {
@@ -91,5 +98,14 @@ return {
 		}
 		require('lspconfig').marksman.setup {}
 		require('lspconfig').jsonls.setup {}
+
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+			vim.lsp.handlers.hover, {
+				-- Use a sharp border with `FloatBorder` highlights
+				border = "single",
+				-- add the title in hover float window
+				title = "hover"
+			}
+		)
 	end
 }

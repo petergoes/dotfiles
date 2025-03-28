@@ -113,6 +113,15 @@ return { -- Autocompletion
 				{ name = 'luasnip' },
 				{ name = 'path' },
 			},
+
+			window = {
+				completion = {
+					border = 'rounded',
+				},
+				documentation = {
+					border = 'rounded',
+				}
+			}
 		}
 	end,
 }
