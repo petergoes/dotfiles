@@ -13,8 +13,4 @@ return {
 			}
 		},
 	},
-
-	{ "nvim-tree/nvim-web-devicons", lazy = true },
-	{ "navarasu/onedark.nvim",       lazy = false, priority = 1000 },
-
 }

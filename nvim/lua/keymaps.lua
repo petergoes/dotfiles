@@ -73,3 +73,4 @@ vim.api.nvim_set_keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { norem
 vim.api.nvim_set_keymap("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>gu", ":Gitsigns undo_stage_hunk<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>gb", ":lua Snacks.gitbrowse()<CR>", { noremap = true, desc = "Open in GitHub" })
