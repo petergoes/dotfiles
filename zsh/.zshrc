@@ -1,10 +1,7 @@
 PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
-# Use Starship for prompt decoration (https://starship.rs/)
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-
 if [[ "$PLATFORM" == "darwin" ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 	eval "$(fnm env --use-on-cd)"
 	eval "$(thefuck --alias)"
 fi
@@ -20,6 +17,10 @@ if [[ "$PLATFORM" == "linux" ]]; then
 	# Homebrew on Linux
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+# Use Starship for prompt decoration (https://starship.rs/)
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 # Load exa config
 source $HOME/.config/eza/eza.zsh
