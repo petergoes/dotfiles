@@ -1,12 +1,12 @@
 font-family = "Fira Code"
-font-size = 14
+font-size = 13
 font-thicken = true
-adjust-cell-height = 25%
+adjust-cell-height = 40%
 
 window-padding-x = 20
 window-padding-y = 20
 
-macos-titlebar-style = "tabs"
+macos-titlebar-style = hidden
 
 theme = nord
 window-colorspace = "display-p3"
