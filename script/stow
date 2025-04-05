@@ -18,6 +18,7 @@ stow git
 stow --target=$HOME/.config/kitty kitty 
 stow --target=$HOME/.config/lazygit lazygit
 stow --target=$HOME/.config/nvim nvim
+stow tmux
 stow --target=$HOME/.config starship
 stow zsh
 

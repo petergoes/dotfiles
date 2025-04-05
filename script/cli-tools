@@ -12,6 +12,8 @@ jq
 rg
 fzf
 neovim,nvim
+tmux
+tpm
 fnm
 deno
 stow
