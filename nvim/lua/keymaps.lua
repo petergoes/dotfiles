@@ -5,9 +5,7 @@ vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-k>", ":wincmd k<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-j>", ":wincmd j<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-h>", ":wincmd h<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-[>", ":wincmd h<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-l>", ":wincmd l<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-]>", ":wincmd l<CR>", { noremap = true })
 
 -- Keep selection after indentation changes
 vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true })
@@ -64,8 +62,6 @@ vim.api.nvim_set_keymap("n", "<leader>bb", ":BufferLineCyclePrev<CR>", { noremap
 vim.api.nvim_set_keymap("n", "<leader>bp", ":BufferLinePick<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>bq", ":lua Snacks.bufdelete()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>bc", ":lua Snacks.bufdelete()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-]>", ":BufferLineCycleNext<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-[>", ":BufferLineCyclePrev<CR>", { noremap = true })
 
 -- Git
 vim.api.nvim_set_keymap("n", "<leader>gl", ":LazyGit<CR>", { noremap = true })
